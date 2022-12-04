@@ -1,0 +1,73 @@
+<form [formGroup]="datosUsuario">
+  <div class="mb-3">
+    <label for="Nombre" class="form-label">Nombre</label>
+    <input
+      formControlName="nombre"
+      type="text"
+      class="form-control"
+      id="Nombre"
+      aria-describedby="emailHelp"
+    />
+    <div
+      *ngIf="datosUsuario.get('nombre')?.errors?.['required']"
+      class="form-text text-danger"
+    >
+      Debe llenar el campo
+    </div>
+    <div
+      *ngIf="datosUsuario.get('nombre')?.errors?.['minlength']"
+      class="form-text text-danger"
+    >
+      Debe llenar minimo 5 caracteres
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="apellido" class="form-label">Apellido</label>
+    <input
+      type="text"
+      class="form-control"
+      id="apellido"
+      formControlName="apellido"
+    />
+  </div>
+  <div
+    *ngIf="datosUsuario.get('apellido')?.errors?.['required']"
+    class="form-text text-danger"
+  >
+    Debe llenar el campo
+  </div>
+  <div
+    *ngIf="datosUsuario.get('apellido')?.errors?.['minlength']"
+    class="form-text text-danger"
+  >
+    Debe llenar minimo 5 caracteres
+  </div>
+  <div class="mb-3">
+    <label for="cedula" class="form-label">Cedula</label>
+    <input
+      type="number"
+      class="form-control"
+      id="cedula"
+      formControlName="cedula"
+    />
+  </div>
+  <div *ngIf="datosUsuario.get('cedula')?.errors?.['required']" class="form-text text-danger">
+    Debe llenar el campo
+    </div>
+    <div *ngIf="datosUsuario.get('cedula')?.errors?.['pattern']" class="form-text text-danger">
+        Debe llenar los 10 numeros de la cedula ni mas ni menos
+    </div>
+  <button
+    type="button"
+    (click)="OnClick()"
+    [disabled]="!datosUsuario.valid"
+    class="btn btn-primary"
+  >
+    Enviar
+  </button>
+</form>
+
+<h1>{{ datosUsuario.value | json }}</h1>
+<h1>{{ datosUsuario.valid | json }}</h1>
+<h1>{{ datosUsuario.status | json }}</h1>
+<h1>{{ datosUsuario.errors | json }}</h1>

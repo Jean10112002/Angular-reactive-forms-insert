@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuariosI } from './form/form.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'form-reactive-crud';
+  usuarios:UsuariosI[]=[]
+  addItem(event:UsuariosI[]){
+    this.usuarios=event
+  }
 }

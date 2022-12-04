@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Cedula</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let u of usuariosDatos">
+      <tr>
+        <td > {{u.nombre}} </td>
+        <td>{{u.apellido}}</td>
+        <td> {{u.cedula}} </td>
+      </tr>
+    </tbody>
+  </table>
